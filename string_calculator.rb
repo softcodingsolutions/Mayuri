@@ -29,7 +29,7 @@ class StringCalculator
     # Check for negative numbers
     negatives = nums.select(&:negative?)
     # Raise exception with negative numbers if found
-    raise "negative numbers not allowed #{negatives.join(',')}" if negatives.any?
+    raise "negative numbers are not allowed, such as #{negatives.join(',')}" if negatives.any?
 
     nums.sum
   end
