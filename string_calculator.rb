@@ -5,7 +5,7 @@ require 'pry'
 # This class accepts a string of numbers as input and returns a sum of those numbers as output.
 class StringCalculator
   def self.add(numbers)
-    raise ArgumentError, 'Only string argument is allowed.' unless numbers.is_a?(String)
+    raise ArgumentError, 'Only a string argument is allowed.' unless numbers.is_a?(String)
 
     return 0 if numbers.empty?
 
