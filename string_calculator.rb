@@ -19,6 +19,9 @@ class StringCalculator
       numbers = numbers.split("\n", 2)[1]
     end
 
+    # Handle invalid input with comma followed by newline
+    return 'Invalid input' if numbers.include?(",\n")
+
     # Replace new lines with delimiter for handling new lines between numbers
     numbers = numbers.gsub("\n", delimiter)
     nums = numbers.split(delimiter).map(&:to_i)

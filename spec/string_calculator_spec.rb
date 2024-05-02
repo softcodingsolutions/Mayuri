@@ -35,5 +35,19 @@ describe StringCalculator do
         expect { described_class.add(7, 4) }.to raise_error(ArgumentError, /wrong number of arguments/)
       end
     end
+
+    it 'handles new lines between numbers' do
+      expect(described_class.add("1\n2,3")).to eq(6)
+    end
+
+    context 'when the string contains an invalid newline character' do
+      it "return error when invalid \n passed at end" do
+        expect(described_class.add("1,\n")).to eq 'Invalid input'
+      end
+
+      it "return error when invalid \n passed at beginning without number" do
+        expect(described_class.add("2,\n, 6")).to eq 'Invalid input'
+      end
+    end
   end
 end
